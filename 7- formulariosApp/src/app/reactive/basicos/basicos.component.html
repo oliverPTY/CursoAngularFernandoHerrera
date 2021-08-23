@@ -1,0 +1,74 @@
+
+<h2>Dinamicos: Basicos</h2>
+<hr>
+
+
+<div class="row">
+   <div class="col">
+       <form (ngSubmit)='guardar()' autocomplete="off" [formGroup]="miForm">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Producto</label>
+
+            <input
+             type="text" class="form-control" id="exampleFormControlInput1"
+             placeholder="Nombre del Producto"
+             formControlName="nombre"
+             >
+
+           <span  *ngIf="campoNoEsValido('nombre')"
+           class="form-text text-danger">Debe de ser de 3 letras
+           </span>  
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Precio</label>
+
+            <input 
+            type="number" class="form-control" id="exampleFormControlInput1" 
+            placeholder="Precio del Producto"
+            formControlName="precio"
+            >
+            <span *ngIf="campoNoEsValido('precio')"
+           class="form-text text-danger">El precio debe ser mayor a 0
+           </span>  
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Existencia</label>
+            <input 
+             formControlName="existencia"
+            type="number" class="form-control" id="exampleFormControlInput1"
+             placeholder="Existencia del Producto"> 
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" 
+                    
+                    class="btn btn-success float-end">Guardar</button>
+        </div>
+
+        
+
+       </form>
+   </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col">
+        <span>valid</span>
+        <pre>{{miForm.valid}}</pre>
+
+        <span>pristine</span>
+        <pre>{{miForm.pristine}}</pre>
+
+        <span>touched</span>
+        <pre>{{miForm.touched}}</pre>
+
+        <span>value</span>
+        <pre>{{miForm.value | json}}</pre>
+
+    </div>
+    
+</div>

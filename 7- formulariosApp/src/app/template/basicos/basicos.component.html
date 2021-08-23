@@ -1,0 +1,77 @@
+
+
+<h2>template: Basicos</h2>
+<hr>
+
+
+<div class="row">
+   <div class="col">
+       <form (ngSubmit)="Guardar()" #miForm='ngForm' autocomplete="off">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Producto</label>
+
+            <input ngModel name='producto' required
+             type="text" class="form-control" id="exampleFormControlInput1"
+             placeholder="Nombre del Producto"
+             minlength="3"
+             [ngModel]="ValorInicial.producto"
+             >
+
+           <span *ngIf="nombreValido()"
+           class="form-text text-danger">Debe de ser de 3 letras
+           </span>  
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Precio</label>
+
+            <input ngModel name='precio'
+            type="number" class="form-control" id="exampleFormControlInput1" 
+            placeholder="Precio del Producto"
+            required
+            >
+            <span *ngIf="precioValido()"
+           class="form-text text-danger">El precio debe ser mayor a 0
+           </span>  
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Existencia</label>
+            <input ngModel name='existencia'
+                    required
+                    CustomMin
+                    [minimo]="0"
+            type="number" class="form-control" id="exampleFormControlInput1"
+             placeholder="Existencia del Producto"> 
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" 
+                    [disabled]='miForm.invalid' 
+                    class="btn btn-success float-end">Guardar</button>
+        </div>
+
+        
+
+       </form>
+   </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>valid</span>
+        <pre>{{miForm.valid}}</pre>
+
+        <span>pristine</span>
+        <pre>{{miForm.pristine}}</pre>
+
+        <span>touched</span>
+        <pre>{{miForm.touched}}</pre>
+
+        <span>value</span>
+        <pre>{{miForm.value | json}}</pre>
+
+        <span>CustomDirective</span>
+        <pre>{{miForm.controls.existencia?.errors | json}}</pre>
+    </div>
+</div>

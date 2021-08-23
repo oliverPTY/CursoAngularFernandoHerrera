@@ -1,0 +1,66 @@
+
+<div class="text-blanco">
+    <h1>Pipes No Comunes</h1>
+    <p>Pipe no Comunes que se encuentran en NG</p>
+</div>
+
+<div class="p-grid">
+    <div class="p-col p-md-6                text-blanco">
+        <p-fieldset legend="il8nSelect Pipe" [toggleable]="true">
+            <p>
+                Saludos {{nombre}}, es un placer {{genero |i18nSelect:invitacionMap}} a nuestro evento
+            </p>
+            <button (click)="cambiarCliente()" pButton pRipple type="button" label="Cambiar" icon="pi pi-refresh" iconPos="right" class="p-button-rounded p-button-info"></button>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6               text-blanco">
+        <p-fieldset legend="il8nPlural Pipe" [toggleable]="true">
+            <p>
+                Actualmente {{clientes.length | i18nPlural: clientesMapa}} 
+            </p>
+            <button (click)="borrarCliente()" pButton pRipple type="button" label="Eliminar" icon="pi pi-times-circle" iconPos="right" class="p-button-rounded p-button-info"></button>
+        </p-fieldset>
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col p-md-6                text-blanco">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+           <b>Original</b>
+           <pre>{{clientes}}</pre>
+
+           <b>Slice:1:3</b>
+           <pre>{{clientes | slice:1:3}}</pre>
+        </p-fieldset>
+    </div>
+
+    
+    <div class="p-col p-md-6               text-blanco">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+          <b>KeyValue Pipe</b>
+          <ul>
+              <li *ngFor="let item of persona | keyvalue">
+                  {{item.key}}: {{item.value}}
+              </li>
+          </ul> 
+        </p-fieldset>
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col">
+        
+<h5>Custom</h5>
+        <p-card  header="Async Pipe" subheader="Ventas Netas del Presente Año">
+            
+           <p-progressSpinner *ngIf="!(miObservable |async)" [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s">
+           </p-progressSpinner>
+           <p>{{miObservable | async}}</p>
+
+
+           <!--<p>{{valorPromesa | async}}</p>-->
+
+        </p-card>
+    </div>
+</div>

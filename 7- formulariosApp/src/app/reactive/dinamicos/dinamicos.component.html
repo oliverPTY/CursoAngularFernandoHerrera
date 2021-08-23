@@ -1,0 +1,79 @@
+<h2>Reactivos: Dinamicos</h2>
+<hr>
+
+<form (ngSubmit)='Guardar()' [formGroup]="FormDinamic"  autocomplete="off" >
+
+    <!--Nombre-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nombre:</label>
+        <div class="col-sm-9">
+            <input required type="text" class="form-control" 
+                   formControlName="Nombre"
+                   placeholder="Nombre de la Persona">
+            
+            <span *ngIf="campoNoValido('Nombre')"
+           class="form-text text-danger">Requiere mas de 3 Letras
+           </span>  
+        </div>
+    </div>
+
+<!--Agregar Favorito-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Agregar:</label>
+        <div class="col-sm-9">
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Agregar Favorito" aria-label="Recipient's username"
+                 aria-describedby="button-addon2"
+                 [formControl]="nuevoFav"
+                 (keyup.enter)="agregarFav()"
+                 >
+
+                <button class="btn btn-outline-primary"
+                 type="button" id="button-addon2"
+                 (click)="agregarFav()"
+                 >Agregar</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!--Lista de Juegos Favoritos-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Favorito:</label>
+        <div class="col-sm-9" formArrayName="favorito">
+
+            <div class="input-group mb-1"
+            *ngFor="let fav of favarr.controls; let i = index"
+            >
+                <input type="text" class="form-control"  
+                 [formControlName]="i"
+                >
+               <button class="btn btn-outline-danger" type="button" id="button-addon2"
+               (click)="eliminar(i)"
+               >Eliminar</button>    
+            </div>
+            
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-primary float-end"
+
+          >
+              Guardar
+          </button>
+        </div>
+    </div>
+</form>
+
+<!--
+<span>Personas</span>
+<pre>{{persona | json}}</pre>
+-->
+<pre>{{FormDinamic.valid}}</pre>
+
+<span>Agregar juego</span>
+<pre>{{nuevoFav.valid | json}}</pre>

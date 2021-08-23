@@ -1,0 +1,71 @@
+
+
+<div class="text-blanco">
+    <h1>Pipes Basicos</h1>
+
+    <p>pipes incluidos en el modulo de CommonModule</p>
+</div>
+
+<div class="p-grid text-blanco">
+   
+    <div class="p-col-4">
+        <p-card header="uppercase" [subheader]="nombreLower">
+            <p>{{nombreLower | uppercase}}</p>
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="lowercase" [subheader]="nombreUpper">
+            <p>{{nombreUpper | lowercase}}</p>
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="titlecase" [subheader]="nombreCompleto">
+            <p>{{nombreCompleto | titlecase}}</p>
+        </p-card>
+    </div>
+
+
+</div>
+
+<div class="text-blanco">
+    <h1>Date | Fecha | Pipe</h1>
+
+    <p>Pipes Para Manejar Fechas</p>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-6">
+         <p-card>
+             <ul>
+                 <li> Fecha</li>
+                 <li> Fecha | date</li>
+                 <li> Fecha | date:'short'</li>
+                 <li> Fecha | date:'long'</li>
+                 <li> Fecha | date:'dd:MMM:YYYY'</li>
+             </ul>
+             <hr>
+             <ul>
+                <li>date | date:'long':'GMT-4'</li>
+                <li>date | date:'long':'GMT-6'</li>
+                <li>date | date:'long':'':'ja'</li>
+             </ul>
+         </p-card>
+    </div>
+    <div class="p-col-6">
+        <p-card>
+             <ul>
+                 <li>{{date}}</li>
+                 <li>{{date | date}}</li>
+                 <li>{{date | date:'short'}}</li>
+                 <li>{{date | date:'long'}}</li>
+                 <li>{{date | date:'dd/MMMM/YYYY'}}</li>
+             </ul>
+             <hr>
+                <ul>
+                    <li>{{date | date:'long':'GMT-4'}}</li>
+                    <li>{{date | date:'long':'GMT-6'}}</li>
+                    <li>{{date | date:'long':'':'ja'}}</li>
+                </ul>
+        </p-card>
+    </div>
+</div>

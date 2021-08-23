@@ -1,0 +1,25 @@
+
+
+<div class="text-blanco">
+    <h1>Pipes Numericos</h1>
+    <p>Pipe Decimal de Angular</p>
+</div>
+
+<div class="p-grid text-blanco">
+    <div class="p-col-4">
+     <p-card header="Ventas Netas" subheader="Ventas Netas del Presente Año">
+         <i class="pi pi-dollar"></i>
+         {{(ventasNetas + 1000000) | number:'1.4-4'}}
+     </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="Ventas Brutas" subheader="Ventas Brutas del Presente Año">
+            {{(ventasNetas + 2000000) | currency:'USD':'symbol-narrow':'1.0-4'}}
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="Ganancias Porcentual" subheader="Ventas Porcentual del Presente Año">
+            {{porcentaje |percent:'1.2-2'}}
+        </p-card>
+    </div>
+</div>

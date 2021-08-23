@@ -1,0 +1,8 @@
+
+<h2>Ciclo de vida</h2>
+<hr>
+
+<button (click)="mostrar = !mostrar">
+   {{ mostrar ? 'Ocultar' : 'Mostrar' }}
+</button>
+<app-pagina1 *ngIf="mostrar"></app-pagina1>

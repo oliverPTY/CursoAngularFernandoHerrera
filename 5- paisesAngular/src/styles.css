@@ -1,0 +1,21 @@
+
+*{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#imagePais{
+    
+    width: 60px;
+}
+
+#banderaPais{
+    width: 160px;
+}
+
+span{
+    margin-right: 5px;
+}
+
+#Regiones{
+    margin-right: 5px;
+}

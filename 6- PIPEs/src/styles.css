@@ -1,0 +1,11 @@
+
+
+html, body{
+margin: 10px;
+ background-color: #17212f;
+ font-family: var(--font-family);
+}
+
+.text-blanco{
+    color: #fff;
+}

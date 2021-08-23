@@ -1,0 +1,69 @@
+
+<div class="container">
+    <h1 class="mt-5">selectores anidados</h1>
+    <hr>
+
+    <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+
+        <div class="alert alert-primary mt-3" role="alert" *ngIf="cargando">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </div>
+        
+        
+        <!-- regiones | continentes -->
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Continente</label>
+                <select class="form-select" formControlName="region">
+                    <option value="">--seleccione un Continente--</option>
+                    <option  *ngFor="let regions of regiones" 
+                             [value]="regions | lowercase">
+                       {{regions}}
+                    </option>
+                </select>
+
+
+            </div>
+        </div>
+
+        <!-- paises -->
+        <div class="row mt-3" *ngIf="paises.length !== 0">
+            <div class="col">
+                <label class="form-label">Paises</label>
+                <select class="form-select" formControlName="paises">
+                    <option value="">--seleccione un Pais--</option>
+                    <option  *ngFor="let pais of paises" 
+                             [value]="pais.alpha3Code">
+                       {{pais.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+         <!-- Fronteras -->
+         <div class="row mt-3" *ngIf="fronteras.length > 0">
+            <div class="col">
+                <label class="form-label">fronteras</label>
+                <select class="form-select" formControlName="frontera">
+                    <option value="">--seleccione una fronteras--</option>
+                    <option  *ngFor="let frontera of fronteras" 
+                             [value]="frontera.alpha3Code">
+                       {{frontera.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <button type="submit" class="btn btn-success float-end">Validar</button>
+            </div>
+        </div>
+    </form>
+<br>
+    <h3>formulario</h3>
+    <pre>valid: {{miFormulario.valid}}</pre>
+    <pre>valor: {{miFormulario.value | json}}</pre>
+</div>

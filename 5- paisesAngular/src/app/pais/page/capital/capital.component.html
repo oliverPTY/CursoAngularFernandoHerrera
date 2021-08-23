@@ -1,0 +1,31 @@
+
+<div class="animate__animated animate__fadeInDown animate__faster">
+    <h4>Busqueda por Capital</h4>
+    <hr>
+
+    <div class="row">
+    <div class="col-9">
+
+        <app-busqueda
+        (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias($event)"
+        placeholder="Busqueda por Capital...."
+        ></app-busqueda>
+
+        <div *ngIf="ErrorPorCapital==true"
+            class="alert alert-danger">
+            No se Encontro nada con el termino "<Strong>{{termino}}</Strong>"
+        </div>
+     
+    </div>
+    </div>
+</div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-9">
+            <app-pais-tabla [pais]="pais"></app-pais-tabla>
+        </div>
+    </div>
+

@@ -1,0 +1,57 @@
+
+ <div class="animate__animated animate__fadeInDown animate__faster">
+ <h2>Por Pais</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <app-busqueda (onEnter)="buscar( $event )" 
+           (onDebounce)="sugerencias($event)"
+           placeholder = "Buscar Por Pais...."            
+        ></app-busqueda>
+        <div *ngIf="hayError==true" 
+         class="alert alert-danger">No se Encontro nada con el termino "<Strong>{{termino}}</Strong>"
+        </div>
+
+        
+    </div>
+    
+</div>
+<ul *ngIf="mostrarSuegerencia === true" 
+ class="list-group">
+    <li class="list-group-item list-group-item-action"
+    *ngFor="let suegePais of paisSegerencia"
+    >
+        <a class="nav-link" 
+        [routerLink]="['/pais',suegePais.alpha2Code]">
+            {{suegePais.name}}
+        </a>
+    </li>
+
+    <li class="list-group-item list-group-item-action"
+       (click)="buscarSugerencia(termino)" 
+       >
+        <a class="nav-link">
+            Buscar "{{termino}}"
+        </a>
+    </li>
+</ul>
+
+
+
+</div>
+
+
+<hr>
+
+
+    <div class="row">
+       
+        <div class="col-9">
+         
+          
+            <app-pais-tabla [pais]="pais"></app-pais-tabla>
+    
+        </div> 
+    
+        </div>
+

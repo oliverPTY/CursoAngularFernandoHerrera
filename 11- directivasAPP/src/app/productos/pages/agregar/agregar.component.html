@@ -1,0 +1,57 @@
+<h1 class="mt-5">Agregar Producto</h1>
+<hr>
+
+
+<form [formGroup]="miForm">
+    <div class="row g-3 aling-items-center mt-5">
+       <div class="col-auto">
+           <label class="col-form-label">Nombre</label>
+       </div>
+
+       <div class="col-auto">
+        <input class="form-control"
+        formControlName="nombre"
+        >
+       </div>
+       
+       <div class="col-auto">
+        <span
+        appErrMsj
+        [valido]="errorForm('nombre')"
+        [color]="colorElegido"
+        [MensajeError]='MensajeError'
+        ></span>
+       </div>
+
+    </div>
+
+    <div class="row mt-5">
+        <div class="col">
+            <button class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col">
+            <button (click)="cambiarColor()" class="btn btn-primary">Cambiar color</button>
+        </div>
+        <div class="col-10">
+            <button (click)="cambiarNombre()" class="btn btn-danger">Cambiar nombre</button>
+        </div>
+    </div>
+   
+</form>
+
+<div class="row mt-5"
+*appCustomIF="errorForm('nombre')"
+>
+    <div class="col">
+        <div class="alert alert-primary" role="alert">
+           Todo OK!!
+          </div>
+    </div>
+</div>
+
+<h3 class="mt-5">Formulario</h3>
+<pre>valid: {{miForm.valid}}</pre>
+<pre>value: {{miForm.value | json}}</pre>
